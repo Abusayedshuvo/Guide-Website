@@ -13,10 +13,10 @@ const Header = () => {
           <div className="flex items-center justify-between min-w-[300px]">
             <Link
               to="/"
-              className="flex items-center font-semibold dark:text-white"
+              className="flex items-center font-bold dark:text-white"
             >
               <img className="w-20" src={logo} alt="Logo" />
-              <span className="text-4xl pl-4"> Guide Nook</span>
+              <span className="text-4xl pl-4 text-primary"> Guide Nook</span>
             </Link>
             <div className="sm:hidden">
               <button
@@ -47,7 +47,7 @@ const Header = () => {
               <Dropdown></Dropdown>
 
               <Link
-                className="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-pink-500 text-white hover:bg-pink-600 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800"
+                className="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-primary text-white hover:bg-primary/80  transition-all text-sm "
                 to="/login"
               >
                 Login

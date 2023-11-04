@@ -10,10 +10,9 @@ export default {
       fontFamily: {
         montserrat: ["Montserrat", "sans-serif"],
       },
-      // colors: {
-      //   yellow: "#ffa500",
-      //   white: "#fff",
-      // },
+      colors: {
+        primary: "#004D3B",
+      },
     },
   },
   plugins: [require("preline/plugin")],

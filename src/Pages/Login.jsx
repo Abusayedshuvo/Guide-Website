@@ -13,19 +13,31 @@ const Login = () => {
         <form>
           <input
             type="email"
+            name="email"
             className="py-4 px-4 block w-full bg-slate-100 mb-5"
             placeholder="Email"
           />
           <input
             type="password"
-            className="py-4 px-4 block w-full bg-slate-100"
+            name="password"
+            className="py-4 px-4 block w-full bg-slate-100 mb-5"
             placeholder="Password"
           />
+          <div className="text-center">
+            <input
+              className="inline-block p-4 w-1/2 bg-primary text-white rounded-lg font-semibold"
+              type="submit"
+              value="Login"
+            />
+          </div>
         </form>
         <div className="text-center">
           <p className="mt-5">
             Don't have an account?
-            <Link className="text-yellow font-semibold pl-2" to="/registration">
+            <Link
+              className="text-yellow font-bold pl-2 text-primary"
+              to="/registration"
+            >
               Register here
             </Link>
           </p>
@@ -34,13 +46,13 @@ const Login = () => {
           <div className="space-x-4">
             <button
               // onClick={handleGoogle}
-              className="p-4 inline-flex items-center gap-4 rounded-lg font-semibold bg-[#EA4335] hover:text-[#EA4335] text-white capitalize"
+              className="p-4 inline-flex items-center gap-4 rounded-lg font-semibold bg-[#EA4335] text-white capitalize"
             >
               <FaGoogle /> Google
             </button>
             <button
               // onClick={handleGithub}
-              className="p-4 inline-flex items-center gap-4 rounded-lg font-semibold bg-[#333] hover:text-[#333] text-white capitalize"
+              className="p-4 inline-flex items-center gap-4 rounded-lg font-semibold bg-[#333]  text-white capitalize"
             >
               <FaGithub /> Github
             </button>
