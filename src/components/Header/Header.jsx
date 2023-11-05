@@ -1,9 +1,20 @@
 import { Link, NavLink } from "react-router-dom";
 import Dropdown from "./Dropdown";
 import logo from "../../assets/logo.png";
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthProvider";
+import Swal from "sweetalert2";
 // import Sidebar from "./Sidebar";
 
 const Header = () => {
+  const { user, logOut } = useContext(AuthContext);
+  const handleLogOut = () => {
+    logOut()
+      .then(() => Swal.fire("Log out Success!", "", "success"))
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   return (
     <>
       <header className="relative flex flex-wrap sm:justify-start sm:flex-nowrap z-50 w-full bg-white text-sm py-4 dark:bg-gray-800">
@@ -47,12 +58,34 @@ const Header = () => {
 
               <Dropdown></Dropdown>
 
-              <Link
-                className="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-primary text-white hover:bg-primary/80  transition-all text-sm "
-                to="/login"
-              >
-                Login
-              </Link>
+              {user ? (
+                <>
+                  {user?.displayName && (
+                    <p className="pe-3 font-medium">{user?.displayName}</p>
+                  )}
+                  {user?.photoURL && (
+                    <img
+                      className="w-10 h-10 rounded-full"
+                      src={user?.photoURL}
+                      alt=""
+                    />
+                  )}
+
+                  <button
+                    onClick={handleLogOut}
+                    className="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-primary text-white hover:bg-primary/80  transition-all text-sm "
+                  >
+                    Log Out
+                  </button>
+                </>
+              ) : (
+                <Link
+                  className="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-primary text-white hover:bg-primary/80  transition-all text-sm "
+                  to="/login"
+                >
+                  Login
+                </Link>
+              )}
             </div>
           </div>
         </nav>
