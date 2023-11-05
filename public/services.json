@@ -1,0 +1,46 @@
+[
+  {
+    "serviceImage": "https://i.ibb.co/RDBCh3x/s-2.jpg",
+    "serviceName": "City Explorer Tour",
+    "serviceDescription": "Discover the heart of the city in this immersive guided tour.",
+    "viewDetailButton": "View Details",
+    "serviceProvider": {
+      "image": "https://i.ibb.co/RDBCh3x/s-2.jpg",
+      "name": "Local Explorers"
+    },
+    "price": "$49.99"
+  },
+  {
+    "serviceImage": "https://i.ibb.co/PmsmLFf/s-1.jpg",
+    "serviceName": "Nature Trek Adventure",
+    "serviceDescription": "Explore breathtaking landscapes on this thrilling trek.",
+    "viewDetailButton": "View Details",
+    "serviceProvider": {
+      "image": "https://i.ibb.co/PmsmLFf/s-1.jpg",
+      "name": "Wilderness Guides"
+    },
+    "price": "$79.99"
+  },
+  {
+    "serviceImage": "https://i.ibb.co/VVBSkzk/s-4.jpg",
+    "serviceName": "Historical Heritage Walk",
+    "serviceDescription": "Journey through time with our expert guides.",
+    "viewDetailButton": "View Details",
+    "serviceProvider": {
+      "image": "https://i.ibb.co/VVBSkzk/s-4.jpg",
+      "name": "Time Travel Tours"
+    },
+    "price": "$64.99"
+  },
+  {
+    "serviceImage": "https://i.ibb.co/sWqptFy/s-3.jpg",
+    "serviceName": "Foodie's Delight Culinary Tour",
+    "serviceDescription": "Savor the flavors of the city with our gastronomic experts.",
+    "viewDetailButton": "View Details",
+    "serviceProvider": {
+      "image": "https://i.ibb.co/sWqptFy/s-3.jpg",
+      "name": "Taste Masters"
+    },
+    "price": "$89.99"
+  }
+]

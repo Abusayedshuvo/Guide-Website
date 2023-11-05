@@ -10,6 +10,12 @@ import Registration from "./Pages/Registration.jsx";
 import AuthProvider from "./context/AuthProvider.jsx";
 import("preline");
 
+// tanstack Query
+
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+// Create a client
+const queryClient = new QueryClient();
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -34,8 +40,10 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <AuthProvider>
-      <RouterProvider router={router} />
-    </AuthProvider>
+    <QueryClientProvider client={queryClient}>
+      <AuthProvider>
+        <RouterProvider router={router} />
+      </AuthProvider>
+    </QueryClientProvider>
   </React.StrictMode>
 );

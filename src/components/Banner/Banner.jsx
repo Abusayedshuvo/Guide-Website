@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 // import required modules
-import { Navigation } from "swiper/modules";
+import { Autoplay, Navigation } from "swiper/modules";
 
 import slide1 from "../../assets/slide-1.jpg";
 import slide2 from "../../assets/slide-2.jpg";
@@ -13,7 +13,16 @@ import slide3 from "../../assets/slide-3.jpg";
 const Banner = () => {
   return (
     <>
-      <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
+      <Swiper
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
+        speed={3000}
+        navigation={true}
+        modules={[Autoplay, Navigation]}
+        className="mySwiper"
+      >
         <SwiperSlide>
           <div
             className="slider-1 flex justify-center items-center bg-blend-overlay h-[80vh] "
