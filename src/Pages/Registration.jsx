@@ -1,31 +1,70 @@
 import Lottie from "lottie-react";
 import loginImg from "../assets/login.json";
 import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { AuthContext } from "../context/AuthProvider";
+import Swal from "sweetalert2";
+import { updateProfile } from "firebase/auth";
 
 const Registration = () => {
+  const { createUser } = useContext(AuthContext);
+  const [error, setError] = useState("");
+
+  const handleRegistration = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    const photo = form.photo.value;
+
+    if (password.length < 6) {
+      setError("Password at least 6 charter");
+      return;
+    } else if (!/^(?=.*[A-Z])(?=.*[@#$%^&+=]).*$/.test(password)) {
+      setError("Password need a capital letter and a special character");
+      return;
+    }
+    setError("");
+    createUser(email, password)
+      .then((result) => {
+        Swal.fire("Registration Success!", "", "success");
+        event.target.reset();
+        updateProfile(result.user, {
+          displayName: name,
+          photoURL: photo,
+        });
+      })
+      .catch((error) => {
+        setError(error.message);
+      });
+  };
   return (
     <>
-      <div className="container mx-auto grid grid-cols-2 items-center">
+      <div className="container mx-auto lg:px-20 grid grid-cols-2 items-center">
         <div className="shadow-xl p-10 rounded-lg">
           <p className="text-4xl  font-semibold mb-10 text-center">
             Create your account
           </p>
-          <form>
+          <form onSubmit={handleRegistration}>
             <input
               type="text"
               name="name"
+              required
               className="py-4 px-4 block w-full bg-slate-100 mb-5"
               placeholder="Name"
             />
             <input
               type="email"
               name="email"
+              required
               className="py-4 px-4 block w-full bg-slate-100 mb-5"
               placeholder="Email"
             />
             <input
               type="password"
               name="password"
+              required
               className="py-4 px-4 block w-full bg-slate-100 mb-5"
               placeholder="Password"
             />
@@ -43,6 +82,12 @@ const Registration = () => {
               />
             </div>
           </form>
+          {error && (
+            <p className="text-red-500 mt-5 font-semibold text-center">
+              {" "}
+              {error}
+            </p>
+          )}
           <p className="mt-5 text-center">
             Already a member?
             <Link
