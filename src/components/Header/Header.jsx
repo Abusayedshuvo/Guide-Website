@@ -1,6 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 import Dropdown from "./Dropdown";
 import logo from "../../assets/logo.png";
+// import Sidebar from "./Sidebar";
 
 const Header = () => {
   return (
@@ -55,6 +56,8 @@ const Header = () => {
             </div>
           </div>
         </nav>
+
+        {/* <Sidebar></Sidebar> */}
       </header>
     </>
   );

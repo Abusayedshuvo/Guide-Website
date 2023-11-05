@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Racing+Sans+One&display=swap");
 
+.transition.duration.fixed.inset-0.z-50.bg-gray-900.bg-opacity-50.dark\:bg-opacity-80.hs-overlay-backdrop {
+  z-index: 0;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
