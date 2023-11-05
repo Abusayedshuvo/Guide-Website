@@ -1,5 +1,4 @@
 import {
-  FacebookAuthProvider,
   GithubAuthProvider,
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
@@ -19,7 +18,6 @@ const AuthProvider = ({ children }) => {
 
   const googleProvider = new GoogleAuthProvider();
   const githubProvider = new GithubAuthProvider();
-  const facebookProvider = new FacebookAuthProvider();
 
   const googleLogin = () => {
     setLoading(true);
@@ -29,11 +27,6 @@ const AuthProvider = ({ children }) => {
   const githubLogin = () => {
     setLoading(true);
     return signInWithPopup(auth, githubProvider);
-  };
-
-  const facebookLogin = () => {
-    setLoading(true);
-    return signInWithPopup(auth, facebookProvider);
   };
 
   const createUser = (email, password) => {
@@ -66,7 +59,6 @@ const AuthProvider = ({ children }) => {
     loading,
     googleLogin,
     githubLogin,
-    facebookLogin,
     createUser,
     loginUser,
     logOut,
