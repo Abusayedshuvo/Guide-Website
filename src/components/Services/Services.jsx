@@ -29,7 +29,7 @@ const Services = () => {
         ))}
       </div>
       <div className="text-center mt-10">
-        <Link to="/" className="btn w-1/3">
+        <Link to="/services" className="btn w-1/3">
           Show All
         </Link>
       </div>

@@ -46,5 +46,53 @@
     },
     "price": "$89.99",
     "serviceArea": "Culinary Hotspots"
+  },
+  {
+    "serviceImage": "https://i.ibb.co/abc123/s-2.jpg",
+    "serviceName": "Adventure Seeker Expedition",
+    "serviceDescription": "Embark on a thrilling journey with our adrenaline-pumping expedition.",
+    "viewDetailButton": "Explore More",
+    "serviceProvider": {
+      "image": "https://i.ibb.co/abc123/s-2.jpg",
+      "name": "Extreme Explorers"
+    },
+    "price": "$59.99",
+    "serviceArea": "Adventure Zones"
+  },
+  {
+    "serviceImage": "https://i.ibb.co/def456/s-1.jpg",
+    "serviceName": "Enchanted Forest Discovery",
+    "serviceDescription": "Discover the magic hidden within the enchanting forest on this mesmerizing tour.",
+    "viewDetailButton": "Discover Magic",
+    "serviceProvider": {
+      "image": "https://i.ibb.co/def456/s-1.jpg",
+      "name": "Mystic Guides"
+    },
+    "price": "$99.99",
+    "serviceArea": "Enchanted Forests"
+  },
+  {
+    "serviceImage": "https://i.ibb.co/ghi789/s-4.jpg",
+    "serviceName": "Timeless Wonder Expedition",
+    "serviceDescription": "Unravel the mysteries of ancient wonders with our expert guides.",
+    "viewDetailButton": "Uncover Secrets",
+    "serviceProvider": {
+      "image": "https://i.ibb.co/ghi789/s-4.jpg",
+      "name": "Eternal Explorations"
+    },
+    "price": "$74.99",
+    "serviceArea": "Timeless Landmarks"
+  },
+  {
+    "serviceImage": "https://i.ibb.co/jkl012/s-3.jpg",
+    "serviceName": "Gourmet Adventure Culinary Tour",
+    "serviceDescription": "Indulge in a culinary adventure with our gourmet experts.",
+    "viewDetailButton": "Indulge Your Taste Buds",
+    "serviceProvider": {
+      "image": "https://i.ibb.co/jkl012/s-3.jpg",
+      "name": "Flavor Connoisseurs"
+    },
+    "price": "$79.99",
+    "serviceArea": "Gastronomic Delights"
   }
 ]
