@@ -14,6 +14,7 @@ import("preline");
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import AllServices from "./Pages/AllServices.jsx";
+import ServiceDetails from "./Pages/ServiceDetails.jsx";
 // Create a client
 const queryClient = new QueryClient();
 
@@ -38,6 +39,12 @@ const router = createBrowserRouter([
       {
         path: "/services",
         element: <AllServices></AllServices>,
+      },
+      {
+        path: "/services/:id",
+        element: <ServiceDetails></ServiceDetails>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/services/${params.id}`),
       },
     ],
   },

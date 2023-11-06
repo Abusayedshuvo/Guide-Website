@@ -1,7 +1,9 @@
 import { PropTypes } from "prop-types";
+import { Link } from "react-router-dom";
 
 const SingleServices = ({ item }) => {
   const {
+    _id,
     serviceImage,
     serviceName,
     serviceDescription,
@@ -9,6 +11,7 @@ const SingleServices = ({ item }) => {
     serviceProvider,
     price,
   } = item;
+
   return (
     <div>
       <img className="rounded-t-lg" src={serviceImage} alt="" />
@@ -17,9 +20,12 @@ const SingleServices = ({ item }) => {
           <p className="text-2xl text-primary font-bold">Price: {price}</p>
           <p className="text-2xl font-semibold">{serviceName}</p>
           <p>{serviceDescription}</p>
-          <button className="bg-primary text-white px-4 py-2 rounded-lg inline-block font-semibold">
+          <Link
+            to={`/services/${_id}`}
+            className="bg-primary text-white px-4 py-2 rounded-lg inline-block font-semibold"
+          >
             {viewDetailButton}
-          </button>
+          </Link>
         </div>
         <div className="border-l-2 flex-1 pl-5">
           <p className="text-xl font-bold">Service Provider</p>

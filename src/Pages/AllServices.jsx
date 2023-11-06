@@ -4,16 +4,13 @@ import Loading from "../components/Loading/Loading";
 import AllServices from "../components/AllServices/AllServices";
 import { useEffect, useState } from "react";
 import Search from "../components/Search/Search";
-import Swal from "sweetalert2";
+// import Swal from "sweetalert2";
 
 const Services = () => {
   const axios = useAxios();
   const [services, setServices] = useState([]);
   const [number, setNumber] = useState(6);
   const [search, setSearch] = useState("");
-
-  console.log(services);
-
   const handleService = () => {
     setNumber(0);
   };
