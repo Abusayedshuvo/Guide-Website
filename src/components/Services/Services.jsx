@@ -1,10 +1,8 @@
 import useAxios from "../../Hook/useAxios";
 import { useQuery } from "@tanstack/react-query";
-import { motion } from "framer-motion";
-import Lottie from "lottie-react";
-import loading from "../../assets/loading.json";
 import SingleServices from "./SingleServices";
 import { Link } from "react-router-dom";
+import Loading from "../Loading/Loading";
 
 const Services = () => {
   const axios = useAxios();
@@ -17,15 +15,7 @@ const Services = () => {
     queryFn: getServices,
   });
   if (isLoading) {
-    return (
-      <>
-        <div className="text-center mx-auto h-screen fixed top-0 left-0 right-0 z-50 bg-white flex justify-center items-center">
-          <motion.button whileHover={{ scale: 1.9 }} whileTap={{ scale: 0.9 }}>
-            <Lottie animationData={loading} loop={true} />;
-          </motion.button>
-        </div>
-      </>
-    );
+    return <Loading></Loading>;
   }
 
   return (

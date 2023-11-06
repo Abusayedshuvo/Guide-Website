@@ -13,6 +13,7 @@ import("preline");
 // tanstack Query
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import AllServices from "./Pages/AllServices.jsx";
 // Create a client
 const queryClient = new QueryClient();
 
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
       {
         path: "/registration",
         element: <Registration></Registration>,
+      },
+      {
+        path: "/services",
+        element: <AllServices></AllServices>,
       },
     ],
   },

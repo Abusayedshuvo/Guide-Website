@@ -8,7 +8,8 @@
       "image": "https://i.ibb.co/RDBCh3x/s-2.jpg",
       "name": "Local Explorers"
     },
-    "price": "$49.99"
+    "price": "$49.99",
+    "serviceArea": "Urban Areas"
   },
   {
     "serviceImage": "https://i.ibb.co/PmsmLFf/s-1.jpg",
@@ -19,7 +20,8 @@
       "image": "https://i.ibb.co/PmsmLFf/s-1.jpg",
       "name": "Wilderness Guides"
     },
-    "price": "$79.99"
+    "price": "$79.99",
+    "serviceArea": "Natural Reserves"
   },
   {
     "serviceImage": "https://i.ibb.co/VVBSkzk/s-4.jpg",
@@ -30,7 +32,8 @@
       "image": "https://i.ibb.co/VVBSkzk/s-4.jpg",
       "name": "Time Travel Tours"
     },
-    "price": "$64.99"
+    "price": "$64.99",
+    "serviceArea": "Historical Sites"
   },
   {
     "serviceImage": "https://i.ibb.co/sWqptFy/s-3.jpg",
@@ -41,6 +44,7 @@
       "image": "https://i.ibb.co/sWqptFy/s-3.jpg",
       "name": "Taste Masters"
     },
-    "price": "$89.99"
+    "price": "$89.99",
+    "serviceArea": "Culinary Hotspots"
   }
 ]
