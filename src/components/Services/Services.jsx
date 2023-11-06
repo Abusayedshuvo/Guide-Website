@@ -33,16 +33,13 @@ const Services = () => {
       <p className="text-4xl text-center font-bold">Popular Services</p>
       <hr className="border-primary border-b-4 w-20 mx-auto my-4" />
 
-      <div className="grid lg:grid-cols-2 gap-8 mt-14">
+      <div className="grid lg:grid-cols-2 gap-6 mt-14">
         {data?.data?.map((item) => (
           <SingleServices key={item._id} item={item}></SingleServices>
         ))}
       </div>
       <div className="text-center mt-10">
-        <Link
-          to="/"
-          className="bg-primary text-white w-1/3 text-center py-3 rounded-lg inline-block font-semibold"
-        >
+        <Link to="/" className="btn w-1/3">
           Show All
         </Link>
       </div>

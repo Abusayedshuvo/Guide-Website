@@ -24,9 +24,7 @@ const About = () => {
           transforming each journey into a chapter of your personal adventure
           novel.
         </p>
-        <button className="bg-primary text-white text-center px-6 py-3 mt-10 rounded-lg inline-block font-semibold">
-          Learn More
-        </button>
+        <button className="btn mt-10">Learn More</button>
       </div>
       <div className="flex-1 overflow-hidden rounded-lg">
         <motion.button
