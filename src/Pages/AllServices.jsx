@@ -49,7 +49,8 @@ const Services = () => {
     return <Loading></Loading>;
   }
 
-  const handleSearch = () => {
+  const handleSearch = (e) => {
+    e.preventDefault();
     const searchInput = document.getElementById("search-field");
     setSearch(searchInput.value);
   };

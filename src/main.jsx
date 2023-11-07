@@ -8,6 +8,7 @@ import Home from "./Pages/Home.jsx";
 import Login from "./Pages/Login.jsx";
 import Registration from "./Pages/Registration.jsx";
 import AuthProvider from "./context/AuthProvider.jsx";
+import PrivateRoutes from "./Routes/PrivateRoutes.jsx";
 import("preline");
 
 // tanstack Query
@@ -15,6 +16,8 @@ import("preline");
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import AllServices from "./Pages/AllServices.jsx";
 import ServiceDetails from "./Pages/ServiceDetails.jsx";
+import AddServices from "./Pages/AddServices.jsx";
+import ManageServices from "./Pages/ManageServices.jsx";
 // Create a client
 const queryClient = new QueryClient();
 
@@ -41,8 +44,28 @@ const router = createBrowserRouter([
         element: <AllServices></AllServices>,
       },
       {
+        path: "/add-services",
+        element: (
+          <PrivateRoutes>
+            <AddServices></AddServices>
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "/manage-services",
+        element: (
+          <PrivateRoutes>
+            <ManageServices></ManageServices>
+          </PrivateRoutes>
+        ),
+      },
+      {
         path: "/services/:id",
-        element: <ServiceDetails></ServiceDetails>,
+        element: (
+          <PrivateRoutes>
+            <ServiceDetails></ServiceDetails>
+          </PrivateRoutes>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/services/${params.id}`),
       },

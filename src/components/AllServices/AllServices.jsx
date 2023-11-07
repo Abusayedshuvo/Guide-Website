@@ -27,14 +27,14 @@ const AllServices = ({ service }) => {
           <p className="text-2xl font-bold">Service Provider</p>
           <p>
             <span className="font-bold "> Provider Name: </span>
-            {serviceProvider.name}
+            {serviceProvider?.name}
           </p>
           <p className=" mb-4">
             <span className="font-bold">Service Area :</span> {serviceArea}
           </p>
           <img
             className="w-20 h-20 rounded-lg"
-            src={serviceProvider.image}
+            src={serviceProvider?.image}
             alt=""
           />
         </div>
