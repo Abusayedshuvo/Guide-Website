@@ -5,7 +5,7 @@ import useAxios from "../Hook/useAxios";
 import Loading from "../components/Loading/Loading";
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
-import SingleServices from "../components/Services/SingleServices";
+import MySchedulesCard from "../components/MySchedulesCard/MySchedulesCard";
 
 const MySchedules = () => {
   const { user } = useContext(AuthContext);
@@ -33,7 +33,7 @@ const MySchedules = () => {
 
             <div className="grid lg:grid-cols-3 gap-6 mt-14">
               {data?.data?.map((item) => (
-                <SingleServices key={item._id} item={item}></SingleServices>
+                <MySchedulesCard key={item._id} item={item}></MySchedulesCard>
               ))}
             </div>
           </div>
