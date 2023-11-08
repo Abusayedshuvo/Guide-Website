@@ -14,6 +14,7 @@
     "axios": "^1.6.0",
     "firebase": "^10.5.2",
     "framer-motion": "^10.16.4",
+    "leaflet": "^1.9.4",
     "localforage": "^1.10.0",
     "lottie-react": "^2.4.0",
     "match-sorter": "^6.3.1",
@@ -23,7 +24,9 @@
     "react": "^18.2.0",
     "react-countup": "^6.5.0",
     "react-dom": "^18.2.0",
+    "react-helmet": "^6.1.0",
     "react-icons": "^4.11.0",
+    "react-leaflet": "^4.2.1",
     "react-router-dom": "^6.18.0",
     "react-simple-typewriter": "^5.0.1",
     "sort-by": "^1.2.0",
@@ -31,6 +34,7 @@
     "swiper": "^11.0.3"
   },
   "devDependencies": {
+    "@types/leaflet": "^1.9.8",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
     "@vitejs/plugin-react": "^4.0.3",

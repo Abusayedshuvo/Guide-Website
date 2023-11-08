@@ -42,7 +42,6 @@ const Header = () => {
                 aria-controls="navbar-collapse-basic"
                 aria-label="Toggle navigation"
               >
-                {" "}
                 <FaBars> </FaBars>
               </button>
             </div>
@@ -68,6 +67,15 @@ const Header = () => {
                 }
               >
                 Services
+              </NavLink>
+
+              <NavLink
+                to="/contact"
+                className={({ isActive }) =>
+                  isActive ? "text-primary font-bold" : ""
+                }
+              >
+                Contact
               </NavLink>
 
               <Dropdown></Dropdown>

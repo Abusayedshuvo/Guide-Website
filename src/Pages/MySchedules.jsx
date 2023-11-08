@@ -6,6 +6,7 @@ import Loading from "../components/Loading/Loading";
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import MySchedulesCard from "../components/MySchedulesCard/MySchedulesCard";
+import { Helmet } from "react-helmet";
 
 const MySchedules = () => {
   const { user } = useContext(AuthContext);
@@ -24,9 +25,12 @@ const MySchedules = () => {
   }
   return (
     <>
+      <Helmet>
+        <title>Guide Nook | My Schedules</title>
+      </Helmet>
       <Breadcrumb title="My Schedules"></Breadcrumb>
 
-      {data.data.length > 0 ? (
+      {data?.data?.length > 0 ? (
         <>
           <div className="m-container">
             <p className="text-4xl font-bold">My Bookings</p>

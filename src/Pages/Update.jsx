@@ -3,6 +3,7 @@ import useAxios from "../Hook/useAxios";
 import Breadcrumb from "../components/Breadcrumb/Breadcrumb";
 import Loading from "../components/Loading/Loading";
 import { useParams } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 const Update = () => {
   const { id } = useParams();
@@ -65,6 +66,9 @@ const Update = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Guide Nook |Update Services</title>
+      </Helmet>
       <Breadcrumb title={"Update Your Service"}></Breadcrumb>
       <div className="m-container mt-5">
         <form onSubmit={handleUpdate}>

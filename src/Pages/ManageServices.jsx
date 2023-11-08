@@ -5,6 +5,7 @@ import { AuthContext } from "../context/AuthProvider";
 import useAxios from "../Hook/useAxios";
 import Loading from "../components/Loading/Loading";
 import ServiceManage from "../components/ServiceManage/ServiceManage";
+import { Helmet } from "react-helmet";
 
 const ManageServices = () => {
   const { user } = useContext(AuthContext);
@@ -35,6 +36,9 @@ const ManageServices = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Guide Nook | Manage Services</title>
+      </Helmet>
       <Breadcrumb title="Manage Services"></Breadcrumb>
       <div className="m-container grid lg:grid-cols-2 gap-6 mt-14">
         {data?.data?.map((item) => (

@@ -4,6 +4,8 @@ import Loading from "../components/Loading/Loading";
 import AllServices from "../components/AllServices/AllServices";
 import { useEffect, useState } from "react";
 import Search from "../components/Search/Search";
+import { Helmet } from "react-helmet";
+
 // import Swal from "sweetalert2";
 
 const Services = () => {
@@ -57,6 +59,9 @@ const Services = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Guide Nook | All Services</title>
+      </Helmet>
       <Search handleSearch={handleSearch}></Search>
       <div className="m-container">
         {services?.data?.map((service) => (

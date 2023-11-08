@@ -5,6 +5,7 @@ import { AuthContext } from "../context/AuthProvider";
 import useAxios from "../Hook/useAxios";
 import Loading from "../components/Loading/Loading";
 import { useQuery } from "@tanstack/react-query";
+import { Helmet } from "react-helmet";
 
 const ServiceDetails = () => {
   const service = useLoaderData();
@@ -34,6 +35,9 @@ const ServiceDetails = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Guide Nook | Services Details</title>
+      </Helmet>
       <div className="bg-primary/10 py-1">
         <div className="m-container">
           <div className="grid lg:grid-cols-12">

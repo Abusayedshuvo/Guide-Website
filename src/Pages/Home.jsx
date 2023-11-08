@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import About from "../components/About/About";
 import Banner from "../components/Banner/Banner";
 import Blog from "../components/Blog/Blog";
@@ -8,6 +9,9 @@ import Services from "../components/Services/Services";
 const Home = () => {
   return (
     <>
+      <Helmet>
+        <title>Guide Nook | Home</title>
+      </Helmet>
       <Banner></Banner>
       <About></About>
       <Services></Services>

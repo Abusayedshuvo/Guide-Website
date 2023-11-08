@@ -2,10 +2,14 @@ import { Link } from "react-router-dom";
 import Lottie from "lottie-react";
 import Img404 from "../assets/404.json";
 import Header from "../components/Header/Header";
+import { Helmet } from "react-helmet";
 
 const ErrorPage = () => {
   return (
     <>
+      <Helmet>
+        <title>Guide Nook | 404 </title>
+      </Helmet>
       <Header></Header>
       <div className="container mx-auto text-center">
         <Lottie

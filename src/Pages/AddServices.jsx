@@ -3,6 +3,7 @@ import Breadcrumb from "../components/Breadcrumb/Breadcrumb";
 import { AuthContext } from "../context/AuthProvider";
 import useAxios from "../Hook/useAxios";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 const AddServices = () => {
   const axios = useAxios();
@@ -44,6 +45,9 @@ const AddServices = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Guide Nook | Add Services</title>
+      </Helmet>
       <Breadcrumb title={"Add Services"}> </Breadcrumb>
       <div className="m-container mt-5">
         <form onSubmit={handleAdd}>

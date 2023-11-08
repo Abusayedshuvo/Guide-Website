@@ -1,5 +1,6 @@
 import { PropTypes } from "prop-types";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const SingleServices = ({ item }) => {
   const {
@@ -13,7 +14,17 @@ const SingleServices = ({ item }) => {
   } = item;
   return (
     <div>
-      <img className="rounded-t-lg" src={serviceImage} alt="" />
+      <div className="overflow-hidden rounded-t-lg">
+        <motion.button
+          className="rounded-t-lg"
+          whileHover={{ scale: 1.2 }}
+          whileTap={{ scale: 0.9 }}
+          transition={{ duration: 0.5 }}
+        >
+          <img className="rounded-t-lg" src={serviceImage} alt="" />
+        </motion.button>
+      </div>
+
       <div className="border-2 border-t-0 p-6 rounded-b-lg flex justify-between gap-4">
         <div className="space-y-2">
           <p className="text-2xl text-primary font-bold">Price: {price}</p>

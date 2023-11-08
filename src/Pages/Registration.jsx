@@ -5,6 +5,7 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../context/AuthProvider";
 import Swal from "sweetalert2";
 import { updateProfile } from "firebase/auth";
+import { Helmet } from "react-helmet";
 
 const Registration = () => {
   const { createUser } = useContext(AuthContext);
@@ -41,6 +42,9 @@ const Registration = () => {
   };
   return (
     <>
+      <Helmet>
+        <title>Guide Nook | Registration</title>
+      </Helmet>
       <div className="container mx-auto lg:px-20 grid lg:grid-cols-2 items-center">
         <div className="shadow-xl p-10 rounded-lg">
           <p className="text-4xl  font-semibold mb-10 text-center">
