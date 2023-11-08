@@ -1,13 +1,37 @@
-import { useContext } from "react";
-import Breadcrumb from "../components/Breadcrumb/Breadcrumb";
-import { AuthContext } from "../context/AuthProvider";
+import { useQuery } from "@tanstack/react-query";
 import useAxios from "../Hook/useAxios";
+import Breadcrumb from "../components/Breadcrumb/Breadcrumb";
+import Loading from "../components/Loading/Loading";
+import { useParams } from "react-router-dom";
 
-const AddServices = () => {
+const Update = () => {
+  const { id } = useParams();
   const axios = useAxios();
-  const { user } = useContext(AuthContext);
-  const { displayName, email: userEmail, photoURL } = user;
-  const handleAdd = (event) => {
+  const myServices = async () => {
+    const res = await axios.get(`/services/${id}`);
+    return res;
+  };
+  const { data, isLoading } = useQuery({
+    queryKey: ["my-services"],
+    queryFn: myServices,
+  });
+  if (isLoading) {
+    return <Loading></Loading>;
+  }
+
+  const {
+    _id,
+    serviceName,
+    serviceImage,
+    userName,
+    userEmail,
+    userPhoto,
+    price,
+    area,
+    serviceDescription,
+  } = data.data;
+
+  const handleUpdate = (event) => {
     event.preventDefault();
     const form = event.target;
     const serviceName = form.serviceName.value;
@@ -18,7 +42,7 @@ const AddServices = () => {
     const price = form.price.value;
     const area = form.area.value;
     const serviceDescription = form.description.value;
-    const addServices = {
+    const updateServices = {
       serviceName,
       serviceImage,
       userName,
@@ -30,9 +54,9 @@ const AddServices = () => {
     };
 
     axios
-      .post("/services", addServices)
+      .put(`/services/${_id}`, updateServices)
       .then((data) => {
-        console.log(data.data);
+        console.log(data);
       })
       .catch(function (error) {
         console.log(error);
@@ -41,9 +65,9 @@ const AddServices = () => {
 
   return (
     <>
-      <Breadcrumb title={"Add Services"}> </Breadcrumb>
+      <Breadcrumb title={"Update Your Service"}></Breadcrumb>
       <div className="m-container mt-5">
-        <form onSubmit={handleAdd}>
+        <form onSubmit={handleUpdate}>
           <div className="grid grid-cols-2 gap-6 shadow-2xl p-10 rounded-lg">
             <p className="text-4xl font-bold text-primary text-center col-span-2 mb-5">
               Add Services
@@ -53,19 +77,21 @@ const AddServices = () => {
               name="serviceName"
               className="py-4 px-4 block w-full bg-slate-100 mb-5"
               placeholder="Service Name"
+              defaultValue={serviceName}
             />
             <input
               type="text"
               name="serviceImage"
               className="py-4 px-4 block w-full bg-slate-100 mb-5"
               placeholder="Photo URL"
+              defaultValue={serviceImage}
             />
             <input
               type="text"
               name="name"
               className="py-4 px-4 block w-full bg-slate-100 mb-5"
               placeholder="Your Name"
-              defaultValue={displayName}
+              defaultValue={userName}
               disabled
             />
             <input
@@ -81,7 +107,7 @@ const AddServices = () => {
               name="userPhoto"
               className="py-4 px-4 block w-full bg-slate-100 mb-5"
               placeholder="Your Photo"
-              defaultValue={photoURL}
+              defaultValue={userPhoto}
               disabled
             />
             <input
@@ -89,24 +115,27 @@ const AddServices = () => {
               name="price"
               className="py-4 px-4 block w-full bg-slate-100 mb-5"
               placeholder="Price"
+              defaultValue={price}
             />
             <input
               type="text"
               name="area"
               className="py-4 px-4 block w-full bg-slate-100 mb-5"
               placeholder="Service Area"
+              defaultValue={area}
             />
             <textarea
               type="text"
               name="description"
               className="py-4 px-4 block w-full bg-slate-100 mb-5"
               placeholder="Description"
+              defaultValue={serviceDescription}
             />
             <div className="col-span-2 text-center">
               <input
                 className="btn lg:w-1/3"
                 type="submit"
-                value="Add Services"
+                value="Update Services"
               />
             </div>
           </div>
@@ -116,4 +145,4 @@ const AddServices = () => {
   );
 };
 
-export default AddServices;
+export default Update;

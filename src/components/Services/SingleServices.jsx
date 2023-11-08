@@ -7,7 +7,6 @@ const SingleServices = ({ item }) => {
     serviceImage,
     serviceName,
     serviceDescription,
-    viewDetailButton,
     serviceProvider,
     price,
   } = item;
@@ -20,11 +19,8 @@ const SingleServices = ({ item }) => {
           <p className="text-2xl text-primary font-bold">Price: {price}</p>
           <p className="text-2xl font-semibold">{serviceName}</p>
           <p>{serviceDescription}</p>
-          <Link
-            to={`/services/${_id}`}
-            className="bg-primary text-white px-4 py-2 rounded-lg inline-block font-semibold"
-          >
-            {viewDetailButton}
+          <Link to={`/services/${_id}`} className="btn">
+            View Detail
           </Link>
         </div>
         <div className="border-l-2 flex-1 pl-5">

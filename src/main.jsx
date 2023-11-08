@@ -18,6 +18,7 @@ import AllServices from "./Pages/AllServices.jsx";
 import ServiceDetails from "./Pages/ServiceDetails.jsx";
 import AddServices from "./Pages/AddServices.jsx";
 import ManageServices from "./Pages/ManageServices.jsx";
+import Update from "./Pages/Update.jsx";
 // Create a client
 const queryClient = new QueryClient();
 
@@ -56,6 +57,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoutes>
             <ManageServices></ManageServices>
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "/update/:id",
+        element: (
+          <PrivateRoutes>
+            <Update></Update>
           </PrivateRoutes>
         ),
       },

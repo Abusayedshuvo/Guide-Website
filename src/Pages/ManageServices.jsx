@@ -1,14 +1,50 @@
+import { useQuery } from "@tanstack/react-query";
 import Breadcrumb from "../components/Breadcrumb/Breadcrumb";
-import { useLoaderData } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../context/AuthProvider";
+import useAxios from "../Hook/useAxios";
+import Loading from "../components/Loading/Loading";
+import ServiceManage from "../components/ServiceManage/ServiceManage";
 
 const ManageServices = () => {
-  const service = useLoaderData();
+  const { user } = useContext(AuthContext);
+  const axios = useAxios();
+  const myServices = async () => {
+    const res = await axios.get(`/my-services/${user.email}`);
+    return res;
+  };
+  const { data, isLoading } = useQuery({
+    queryKey: ["my-services"],
+    queryFn: myServices,
+    refetchInterval: 2,
+  });
+  if (isLoading) {
+    return <Loading></Loading>;
+  }
 
-  console.log(service);
+  const handleDelete = (id) => {
+    axios
+      .delete(`/services-all/${id}`, id)
+      .then((data) => {
+        console.log(data.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
 
   return (
     <>
       <Breadcrumb title="Manage Services"></Breadcrumb>
+      <div className="m-container grid lg:grid-cols-2 gap-6 mt-14">
+        {data?.data?.map((item) => (
+          <ServiceManage
+            key={item._id}
+            item={item}
+            handleDelete={handleDelete}
+          ></ServiceManage>
+        ))}
+      </div>
     </>
   );
 };

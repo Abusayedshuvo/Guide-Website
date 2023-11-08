@@ -69,7 +69,7 @@ const Registration = () => {
               placeholder="Password"
             />
             <input
-              type="text"
+              type="url"
               name="photo"
               className="py-4 px-4 block w-full bg-slate-100 mb-5"
               placeholder="Photo URL"

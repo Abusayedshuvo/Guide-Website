@@ -13,6 +13,7 @@ const Services = () => {
   const { data, isLoading } = useQuery({
     queryKey: ["services"],
     queryFn: getServices,
+    // refetchInterval: 2,
   });
   if (isLoading) {
     return <Loading></Loading>;

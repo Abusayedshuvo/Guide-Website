@@ -3,12 +3,15 @@ import ServiceModal from "../components/ServiceModal/ServiceModal";
 
 const ServiceDetails = () => {
   const service = useLoaderData();
+  console.log(Object.keys(service).join(","));
   const {
-    serviceImage,
     serviceName,
-    serviceDescription,
-    serviceProvider,
+    serviceImage,
+    userName,
+    userPhoto,
     price,
+    area,
+    serviceDescription,
   } = service;
 
   return (
@@ -32,19 +35,15 @@ const ServiceDetails = () => {
                   Book Now
                 </button>
               </div>
-              <div className="border-l-2 col-span-1 pl-5">
-                <p className="text-xl font-bold">Service Provider</p>
-                <p className="font-bold mb-4">{serviceProvider.name}</p>
-                <img
-                  className="w-20 h-20 rounded-lg"
-                  src={serviceProvider.image}
-                  alt=""
-                />
-              </div>
             </div>
           </div>
           <div className="col-span-4">
-            <p className="text-2xl font-bold">Service Provider Details</p>
+            <div className="text-right pl-5">
+              <p className="text-4xl font-bold mb-10">Service Provider</p>
+              <img className="w-32 rounded-lg ml-auto" src={userPhoto} alt="" />
+              <p className="font-bold mt-4 text-2xl">{userName}</p>
+              <p className="font-bold mt-4 text-2xl">Service Area: {area}</p>
+            </div>
           </div>
         </div>
       </div>

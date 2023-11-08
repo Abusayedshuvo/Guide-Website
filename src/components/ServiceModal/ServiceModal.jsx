@@ -1,17 +1,42 @@
-import { useContext } from "react";
-import { AuthContext } from "../../context/AuthProvider";
 import { FaXmark } from "react-icons/fa6";
+import { PropTypes } from "prop-types";
+import useAxios from "../../Hook/useAxios";
 
 const ServiceModal = ({ service }) => {
-  const { user } = useContext(AuthContext);
-  console.log(user);
-  const {
-    serviceImage,
-    serviceName,
-    serviceDescription,
-    serviceProvider,
-    price,
-  } = service;
+  const axios = useAxios();
+
+  const { serviceName, serviceImage, userName, userEmail, price, area } =
+    service;
+  const handleBook = () => {
+    event.preventDefault();
+    const form = event.target;
+    const serviceName = form.serviceName.value;
+    const serviceImage = form.serviceImage.value;
+    const userName = form.userName.value;
+    const userEmail = form.userEmail.value;
+    const price = form.price.value;
+    const area = form.area.value;
+    const date = form.date.value || "";
+    const bookServices = {
+      serviceName,
+      serviceImage,
+      userName,
+      userEmail,
+      price,
+      area,
+      date,
+    };
+
+    axios
+      .post("/book", bookServices)
+      .then((data) => {
+        console.log(data.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+
   return (
     <>
       <div
@@ -34,42 +59,65 @@ const ServiceModal = ({ service }) => {
               </button>
             </div>
             <div className="p-4 overflow-y-auto">
-              <input
-                type="text"
-                name="name"
-                className="py-4 px-4 block w-full bg-slate-100 mb-5"
-                defaultValue={serviceName}
-                disabled
-              />
-              <input
-                type="text"
-                name="servicePhoto"
-                className="py-4 px-4 block w-full bg-slate-100 mb-5"
-                defaultValue={serviceImage}
-                disabled
-              />
+              <form onSubmit={handleBook}>
+                <input
+                  type="text"
+                  name="serviceName"
+                  className="py-4 px-4 block w-full bg-slate-100 mb-5"
+                  defaultValue={serviceName}
+                  disabled
+                />
+                <input
+                  type="text"
+                  name="serviceImage"
+                  className="py-4 px-4 block w-full bg-slate-100 mb-5"
+                  defaultValue={serviceImage}
+                  disabled
+                />
 
-              <input
-                type="email"
-                name="email"
-                className="py-4 px-4 block w-full bg-slate-100 mb-5"
-                placeholder="Email"
-              />
-            </div>
-            <div className="flex justify-end items-center gap-x-2 py-3 px-4 border-t dark:border-gray-700">
-              <button
-                type="button"
-                className="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                data-hs-overlay="#hs-focus-management-modal"
-              >
-                Close
-              </button>
-              <button
-                type="button"
-                className="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-              >
-                Save changes
-              </button>
+                <input
+                  type="text"
+                  name="userName"
+                  className="py-4 px-4 block w-full bg-slate-100 mb-5"
+                  placeholder="Email"
+                  defaultValue={userName}
+                  disabled
+                />
+                <input
+                  type="email"
+                  name="userEmail"
+                  className="py-4 px-4 block w-full bg-slate-100 mb-5"
+                  placeholder="Email"
+                  defaultValue={userEmail}
+                  disabled
+                />
+                <input
+                  type="text"
+                  name="price"
+                  className="py-4 px-4 block w-full bg-slate-100 mb-5"
+                  placeholder="Price"
+                  defaultValue={price}
+                  disabled
+                />
+
+                <input
+                  className="py-4 px-4 block w-full bg-slate-100 mb-5"
+                  type="date"
+                  name="date"
+                />
+                <input
+                  type="text"
+                  name="area"
+                  className="py-4 px-4 block w-full bg-slate-100 mb-5"
+                  placeholder="Area"
+                  defaultValue={area}
+                />
+                <input
+                  className="btn"
+                  type="submit"
+                  value="Purchase this Service"
+                />
+              </form>
             </div>
           </div>
         </div>
@@ -79,3 +127,7 @@ const ServiceModal = ({ service }) => {
 };
 
 export default ServiceModal;
+
+ServiceModal.propTypes = {
+  service: PropTypes.object,
+};

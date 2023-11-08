@@ -7,7 +7,6 @@ const AllServices = ({ service }) => {
     serviceImage,
     serviceName,
     serviceDescription,
-    viewDetailButton,
     serviceProvider,
     price,
     serviceArea,
@@ -39,7 +38,7 @@ const AllServices = ({ service }) => {
           />
         </div>
         <Link to={`/services/${_id}`} className="btn">
-          {viewDetailButton}
+          View Detail
         </Link>
       </div>
     </div>
