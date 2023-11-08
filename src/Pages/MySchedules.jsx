@@ -18,10 +18,11 @@ const MySchedules = () => {
     return res;
   };
   const { data, isLoading } = useQuery({
-    queryKey: ["my-services"],
+    queryKey: ["my-book"],
     queryFn: myBook,
     // refetchInterval: 2,
   });
+
   if (isLoading) {
     return <Loading></Loading>;
   }

@@ -12,11 +12,13 @@ const ServiceDetails = () => {
   const { user } = useContext(AuthContext);
   const axios = useAxios();
   const myServices = async () => {
-    const res = await axios.get(`/my-services/${user.email}`);
+    const res = await axios.get(`/my-services/${user.email}`, {
+      withCredentials: true,
+    });
     return res;
   };
   const { data, isLoading } = useQuery({
-    queryKey: ["my-services"],
+    queryKey: ["services-details"],
     queryFn: myServices,
     refetchInterval: 2,
   });

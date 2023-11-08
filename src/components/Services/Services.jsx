@@ -7,7 +7,7 @@ import Loading from "../Loading/Loading";
 const Services = () => {
   const axios = useAxios();
   const getServices = async () => {
-    const res = await axios.get("/services");
+    const res = await axios.get("/services", { withCredentials: true });
     return res;
   };
   const { data, isLoading } = useQuery({

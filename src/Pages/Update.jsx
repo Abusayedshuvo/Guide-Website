@@ -9,11 +9,11 @@ const Update = () => {
   const { id } = useParams();
   const axios = useAxios();
   const myServices = async () => {
-    const res = await axios.get(`/services/${id}`);
+    const res = await axios.get(`/services/${id}`, { withCredentials: true });
     return res;
   };
   const { data, isLoading } = useQuery({
-    queryKey: ["my-services"],
+    queryKey: ["update"],
     queryFn: myServices,
   });
   if (isLoading) {
