@@ -11,9 +11,7 @@ const ManageServices = () => {
   const { user } = useContext(AuthContext);
   const axios = useAxios();
   const myServices = async () => {
-    const res = await axios.get(`/my-services/${user.email}`, {
-      withCredentials: true,
-    });
+    const res = await axios.get(`/my-services/${user.email}`);
     return res;
   };
   const { data, isLoading } = useQuery({

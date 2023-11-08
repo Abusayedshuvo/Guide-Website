@@ -76,7 +76,7 @@ const ServiceDetails = () => {
       </div>
       <ServiceModal service={service}> </ServiceModal>
 
-      {data.data.length > 0 ? (
+      {data?.data?.length > 0 ? (
         <>
           <div className="m-container">
             <p className="text-4xl font-bold mb-10">Other Services</p>
