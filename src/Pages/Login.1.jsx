@@ -6,10 +6,8 @@ import { AuthContext } from "../context/AuthProvider";
 import { useContext, useState } from "react";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet";
-import useAxios from "../Hook/useAxios";
 
-const Login = () => {
-  const axios = useAxios();
+export const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { googleLogin, githubLogin, loginUser } = useContext(AuthContext);
@@ -50,16 +48,8 @@ const Login = () => {
         Swal.fire("Log In Success!", "", "success");
         event.target.reset();
         setError("");
-        // jwt token
-        const user = { email };
-        axios
-          .post("http://localhost:5000/jwt", user, { withCredentials: true })
-          .then((res) => {
-            console.log(res.data);
-            if (res.data.success) {
-              navigate(location?.state ? location.state : "/");
-            }
-          });
+
+        navigate(location?.state ? location.state : "/");
       })
       .catch((error) => {
         setError(error.message);
@@ -91,7 +81,7 @@ const Login = () => {
             />
             <div className="text-center">
               <input
-                className="cursor-pointer inline-block p-4 w-1/2 bg-primary text-white rounded-lg font-semibold"
+                className="inline-block p-4 w-1/2 bg-primary text-white rounded-lg font-semibold"
                 type="submit"
                 value="Login"
               />
@@ -137,5 +127,3 @@ const Login = () => {
     </>
   );
 };
-
-export default Login;

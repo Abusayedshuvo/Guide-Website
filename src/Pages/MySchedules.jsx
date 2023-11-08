@@ -12,7 +12,9 @@ const MySchedules = () => {
   const { user } = useContext(AuthContext);
   const axios = useAxios();
   const myBook = async () => {
-    const res = await axios.get(`/book/${user.email}`);
+    const res = await axios.get(`/book/${user.email}`, {
+      withCredentials: true,
+    });
     return res;
   };
   const { data, isLoading } = useQuery({
