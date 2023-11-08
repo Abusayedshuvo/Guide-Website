@@ -7,6 +7,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import MySchedulesCard from "../components/MySchedulesCard/MySchedulesCard";
 import { Helmet } from "react-helmet";
+import PendingWork from "../components/PendingWork/PendingWork";
 
 const MySchedules = () => {
   const { user } = useContext(AuthContext);
@@ -61,6 +62,7 @@ const MySchedules = () => {
 
       <div className="m-container">
         <p className="text-4xl font-bold">My Pending Work</p>
+        <PendingWork></PendingWork>
       </div>
     </>
   );

@@ -20,16 +20,14 @@ const Login = () => {
       .then((data) => {
         Swal.fire("Google Login Success!", "", "success");
         setError("");
-        const email = data.user.email;
         // jwt token
+        const email = data.user.email;
         const user = { email };
-        axios
-          .post("http://localhost:5000/jwt", user, { withCredentials: true })
-          .then((res) => {
-            if (res.data.success) {
-              navigate(location?.state ? location.state : "/");
-            }
-          });
+        axios.post("http://localhost:5000/jwt", user).then((res) => {
+          if (res.data.success) {
+            navigate(location?.state ? location.state : "/");
+          }
+        });
       })
       .catch((error) => {
         console.log(error.message);

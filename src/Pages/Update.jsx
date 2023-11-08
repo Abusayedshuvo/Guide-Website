@@ -9,7 +9,7 @@ const Update = () => {
   const { id } = useParams();
   const axios = useAxios();
   const myServices = async () => {
-    const res = await axios.get(`/services/${id}`, { withCredentials: true });
+    const res = await axios.get(`/services/${id}`);
     return res;
   };
   const { data, isLoading } = useQuery({

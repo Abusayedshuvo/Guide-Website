@@ -36,6 +36,7 @@ const AddServices = () => {
       .then((data) => {
         if (data.data.acknowledged) {
           Swal.fire("Product Added Successful!", "", "success");
+          form.reset();
         }
       })
       .catch(function (error) {

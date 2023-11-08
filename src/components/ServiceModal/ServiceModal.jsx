@@ -2,12 +2,20 @@ import { FaXmark } from "react-icons/fa6";
 import { PropTypes } from "prop-types";
 import useAxios from "../../Hook/useAxios";
 import Swal from "sweetalert2";
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthProvider";
 
 const ServiceModal = ({ service }) => {
   const axios = useAxios();
-
-  const { serviceName, serviceImage, userName, userEmail, price, area } =
-    service;
+  const { user } = useContext(AuthContext);
+  const { displayName, email } = user;
+  const {
+    serviceName,
+    serviceImage,
+    userEmail: authorEmail,
+    price,
+    area,
+  } = service;
   const handleBook = () => {
     event.preventDefault();
     const form = event.target;
@@ -26,13 +34,14 @@ const ServiceModal = ({ service }) => {
       price,
       area,
       date,
+      authorEmail,
     };
 
     axios
       .post("/book", bookServices)
       .then((data) => {
         if (data.data.acknowledged) {
-          Swal.fire("Service Purchase Successful!", "", "success");
+          Swal.fire("Service Book Successful!", "", "success");
 
           form.reset();
         }
@@ -84,7 +93,7 @@ const ServiceModal = ({ service }) => {
                   type="text"
                   name="userName"
                   className="py-4 px-4 block w-full bg-slate-100 mb-5"
-                  defaultValue={userName}
+                  defaultValue={displayName}
                   disabled
                 />
                 <input
@@ -92,7 +101,7 @@ const ServiceModal = ({ service }) => {
                   name="userEmail"
                   className="py-4 px-4 block w-full bg-slate-100 mb-5"
                   placeholder="Email"
-                  defaultValue={userEmail}
+                  defaultValue={email}
                   disabled
                 />
                 <input

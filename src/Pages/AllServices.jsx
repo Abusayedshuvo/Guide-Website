@@ -15,6 +15,8 @@ const Services = () => {
   const [search, setSearch] = useState("");
   const handleService = () => {
     setNumber(0);
+    const button = document.getElementById("button");
+    button.classList.add("hidden");
   };
   const getServices = async () => {
     const res = await axios.get(`/services-all?limit=${number}`);
@@ -33,17 +35,6 @@ const Services = () => {
         item.serviceName.toLowerCase().includes(search.toLowerCase())
       );
     }
-
-    // if (search) {
-    //   data.data = data.data.filter(
-    //     (item) => search.toLowerCase() == item.serviceName.toLowerCase()
-    //   );
-
-    //   if (!data?.data?.length) {
-    //     Swal.fire("Oops!", "Services not found", "error");
-    //   }
-    // }
-
     setServices(data);
   }, [data, search]);
 
@@ -64,11 +55,26 @@ const Services = () => {
       </Helmet>
       <Search handleSearch={handleSearch}></Search>
       <div className="m-container">
-        {services?.data?.map((service) => (
-          <AllServices key={service._id} service={service}></AllServices>
-        ))}
-        <div className={`${data.data.length > 6 ? "hidden" : "text-center"}`}>
-          <button onClick={handleService} className="btn lg:w-1/3 mt-10">
+        {services?.data?.length > 0 ? (
+          <>
+            {services?.data?.map((service) => (
+              <AllServices key={service._id} service={service}></AllServices>
+            ))}
+          </>
+        ) : (
+          <>
+            <p className="text-4xl text-center">
+              No Service Available on this name
+            </p>
+          </>
+        )}
+
+        <div className={`${data.data.length < 6 ? "hidden" : "text-center"}`}>
+          <button
+            id="button"
+            onClick={handleService}
+            className="btn lg:w-1/3 mt-10"
+          >
             Visit More
           </button>
         </div>
