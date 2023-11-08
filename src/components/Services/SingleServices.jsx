@@ -4,13 +4,13 @@ import { Link } from "react-router-dom";
 const SingleServices = ({ item }) => {
   const {
     _id,
-    serviceImage,
     serviceName,
-    serviceDescription,
-    serviceProvider,
+    serviceImage,
+    userName,
+    userPhoto,
     price,
+    serviceDescription,
   } = item;
-
   return (
     <div>
       <img className="rounded-t-lg" src={serviceImage} alt="" />
@@ -25,12 +25,12 @@ const SingleServices = ({ item }) => {
         </div>
         <div className="border-l-2 flex-1 pl-5">
           <p className="text-xl font-bold">Service Provider</p>
-          <p className="font-bold mb-4">{serviceProvider.name}</p>
-          <img
-            className="w-20 h-20 rounded-lg"
-            src={serviceProvider.image}
-            alt=""
-          />
+          <p className="font-bold mb-4">{userName}</p>
+          {userPhoto ? (
+            <img className="w-20 h-20 rounded-lg" src={userPhoto} alt="" />
+          ) : (
+            <> </>
+          )}
         </div>
       </div>
     </div>

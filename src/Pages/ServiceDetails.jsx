@@ -29,7 +29,7 @@ const ServiceDetails = () => {
                 <p className="text-2xl font-semibold">{serviceName}</p>
                 <p>{serviceDescription}</p>
                 <button
-                  data-hs-overlay="#hs-focus-management-modal"
+                  data-hs-overlay="#hs-medium-modal"
                   className="bg-primary text-white px-4 py-2 rounded-lg inline-block font-semibold"
                 >
                   Book Now

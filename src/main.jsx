@@ -19,6 +19,7 @@ import ServiceDetails from "./Pages/ServiceDetails.jsx";
 import AddServices from "./Pages/AddServices.jsx";
 import ManageServices from "./Pages/ManageServices.jsx";
 import Update from "./Pages/Update.jsx";
+import MySchedules from "./Pages/MySchedules.jsx";
 // Create a client
 const queryClient = new QueryClient();
 
@@ -65,6 +66,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoutes>
             <Update></Update>
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "/my-schedules",
+        element: (
+          <PrivateRoutes>
+            <MySchedules></MySchedules>
           </PrivateRoutes>
         ),
       },

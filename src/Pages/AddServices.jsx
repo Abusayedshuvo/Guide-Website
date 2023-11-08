@@ -2,6 +2,7 @@ import { useContext } from "react";
 import Breadcrumb from "../components/Breadcrumb/Breadcrumb";
 import { AuthContext } from "../context/AuthProvider";
 import useAxios from "../Hook/useAxios";
+import Swal from "sweetalert2";
 
 const AddServices = () => {
   const axios = useAxios();
@@ -32,7 +33,9 @@ const AddServices = () => {
     axios
       .post("/services", addServices)
       .then((data) => {
-        console.log(data.data);
+        if (data.data.acknowledged) {
+          Swal.fire("Product Added Successful!", "", "success");
+        }
       })
       .catch(function (error) {
         console.log(error);
