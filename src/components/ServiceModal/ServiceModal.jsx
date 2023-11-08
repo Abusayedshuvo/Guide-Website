@@ -33,6 +33,8 @@ const ServiceModal = ({ service }) => {
       .then((data) => {
         if (data.data.acknowledged) {
           Swal.fire("Service Purchase Successful!", "", "success");
+
+          form.reset();
         }
       })
       .catch(function (error) {

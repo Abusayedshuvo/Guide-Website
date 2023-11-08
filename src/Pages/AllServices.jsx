@@ -63,7 +63,7 @@ const Services = () => {
           <AllServices key={service._id} service={service}></AllServices>
         ))}
         <div className={`${data.data.length > 6 ? "hidden" : "text-center"}`}>
-          <button onClick={handleService} className="btn w-1/3 mt-10">
+          <button onClick={handleService} className="btn lg:w-1/3 mt-10">
             Visit More
           </button>
         </div>

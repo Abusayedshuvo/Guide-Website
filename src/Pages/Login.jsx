@@ -54,7 +54,7 @@ const Login = () => {
       });
   };
   return (
-    <div className="container mx-auto lg:px-20 grid grid-cols-2 items-center gap-5">
+    <div className="container mx-auto lg:px-20 grid lg:grid-cols-2 items-center gap-5">
       <div className="shadow-xl p-10 rounded-lg">
         <p className="text-4xl  font-semibold mb-10 text-center">
           Login to your account

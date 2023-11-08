@@ -14,7 +14,7 @@ import moment from "moment";
 const Footer = () => {
   return (
     <div className="bg-primary/95 py-1 bg-no-repeat bg-bottom bg-[url('../src/assets/wave.svg')]">
-      <div className="m-container grid grid-cols-1 lg:grid-cols-3 text-white">
+      <div className="m-container grid grid-cols-1 lg:grid-cols-3 gap-6 text-white">
         <div>
           <div className="flex items-center mb-5">
             <img className="w-20" src={logo} alt="" />
@@ -30,14 +30,21 @@ const Footer = () => {
             surface.
           </p>
         </div>
-        <div className="pl-4 lg:pl-28">
+        <div className="pl-0 lg:pl-28">
           <p className="text-lg font-semibold mb-5">Useful Links</p>
           <div className="space-y-3">
-            <Link className="block"> Home </Link>
-            <Link className="block"> Blog </Link>
-            <Link className="block"> Blog </Link>
-            <Link className="block"> Blog </Link>
-            <Link className="block"> Blog </Link>
+            <Link to="/" className="block">
+              Home
+            </Link>
+            <Link to="/services" className="block">
+              Services
+            </Link>
+            <Link to="/login" className="block">
+              Login
+            </Link>
+            <Link to="/registration" className="block">
+              Registration
+            </Link>
           </div>
         </div>
         <div>

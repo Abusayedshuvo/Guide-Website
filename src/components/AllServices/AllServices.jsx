@@ -7,16 +7,17 @@ const AllServices = ({ service }) => {
     serviceImage,
     serviceName,
     serviceDescription,
-    serviceProvider,
+    userPhoto,
+    userName,
     price,
     serviceArea,
   } = service;
   return (
-    <div className="flex mb-10">
+    <div className="lg:flex mb-10">
       <div className="flex-1">
         <img className="rounded-l-lg" src={serviceImage} alt="" />
       </div>
-      <div className="flex-1 border-2 border-primary pl-10 py-4 border-l-0 rounded-r-lg">
+      <div className="flex-1 border-2 border-primary pl-10 py-4 lg:border-l-0 lg:rounded-r-lg lg:rounded-none rounded-lg">
         <div className="space-y-1">
           <p className="text-2xl text-primary font-bold">Price: {price}</p>
           <p className="text-2xl font-semibold">{serviceName}</p>
@@ -26,16 +27,12 @@ const AllServices = ({ service }) => {
           <p className="text-2xl font-bold">Service Provider</p>
           <p>
             <span className="font-bold "> Provider Name: </span>
-            {serviceProvider?.name}
+            {userName}
           </p>
           <p className=" mb-4">
             <span className="font-bold">Service Area :</span> {serviceArea}
           </p>
-          <img
-            className="w-20 h-20 rounded-lg"
-            src={serviceProvider?.image}
-            alt=""
-          />
+          <img className="w-20 h-20 rounded-lg" src={userPhoto} alt="" />
         </div>
         <Link to={`/services/${_id}`} className="btn">
           View Detail

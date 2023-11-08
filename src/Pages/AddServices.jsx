@@ -47,7 +47,7 @@ const AddServices = () => {
       <Breadcrumb title={"Add Services"}> </Breadcrumb>
       <div className="m-container mt-5">
         <form onSubmit={handleAdd}>
-          <div className="grid grid-cols-2 gap-6 shadow-2xl p-10 rounded-lg">
+          <div className="lg:grid grid-cols-2 gap-6 shadow-2xl p-10 rounded-lg">
             <p className="text-4xl font-bold text-primary text-center col-span-2 mb-5">
               Add Services
             </p>

@@ -68,9 +68,9 @@ const Update = () => {
       <Breadcrumb title={"Update Your Service"}></Breadcrumb>
       <div className="m-container mt-5">
         <form onSubmit={handleUpdate}>
-          <div className="grid grid-cols-2 gap-6 shadow-2xl p-10 rounded-lg">
+          <div className="lg:grid lg:grid-cols-2 gap-6 shadow-2xl p-10 rounded-lg">
             <p className="text-4xl font-bold text-primary text-center col-span-2 mb-5">
-              Add Services
+              Update Services
             </p>
             <input
               type="text"

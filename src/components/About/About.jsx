@@ -1,11 +1,15 @@
 import aboutImg from "../../assets/about.jpg";
 import { motion } from "framer-motion";
+import { Typewriter } from "react-simple-typewriter";
 
 const About = () => {
   return (
-    <div className="container mx-auto lg:px-20 my-20 flex gap-10 items-center">
-      <div className="flex-1">
-        <p className="text-4xl font-bold">Our Journey with Guide Nook</p>
+    <div className="container mx-auto lg:px-20 my-20 lg:flex gap-10 items-center">
+      <div className="flex-1 mb-10 lg:mb-0">
+        <p className="text-4xl font-bold">
+          Our Journey with
+          <Typewriter words={[" Guide Nook"]} loop={5} />
+        </p>
         <hr className="border-primary border-b-4 w-20 my-4" />
 
         <p className="my-5">

@@ -4,6 +4,8 @@ import logo from "../../assets/logo.png";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthProvider";
 import Swal from "sweetalert2";
+import { FaBars } from "react-icons/fa6";
+
 // import Sidebar from "./Sidebar";
 
 const Header = () => {
@@ -27,8 +29,10 @@ const Header = () => {
               to="/"
               className="flex items-center font-bold dark:text-white"
             >
-              <img className="w-20" src={logo} alt="Logo" />
-              <span className="text-4xl pl-4 text-primary"> Guide Nook</span>
+              <img className="w-10 md:w-16" src={logo} alt="Logo" />
+              <span className="text-2xl lg:text-4xl pl-4 text-primary">
+                Guide Nook
+              </span>
             </Link>
             <div className="sm:hidden">
               <button
@@ -37,7 +41,10 @@ const Header = () => {
                 data-hs-collapse="#navbar-collapse-basic"
                 aria-controls="navbar-collapse-basic"
                 aria-label="Toggle navigation"
-              ></button>
+              >
+                {" "}
+                <FaBars> </FaBars>
+              </button>
             </div>
           </div>
 
@@ -45,13 +52,20 @@ const Header = () => {
             id="navbar-collapse-basic"
             className="hidden basis-full grow sm:block"
           >
-            <div className="flex flex-col gap-5 mt-5 sm:flex-row sm:items-center sm:justify-end sm:mt-0 sm:pl-5">
-              <NavLink to="/" className="font-medium text-blue-500">
+            <div className="flex flex-col gap-5 mt-5 sm:flex-row sm:items-center sm:justify-end sm:mt-0 sm:pl-5 font-medium">
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  isActive ? "text-primary font-bold" : ""
+                }
+              >
                 Home
               </NavLink>
               <NavLink
                 to="/services"
-                className="font-medium text-gray-600 hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-500"
+                className={({ isActive }) =>
+                  isActive ? "text-primary font-bold" : ""
+                }
               >
                 Services
               </NavLink>

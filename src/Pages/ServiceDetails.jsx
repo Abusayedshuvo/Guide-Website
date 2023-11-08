@@ -3,7 +3,6 @@ import ServiceModal from "../components/ServiceModal/ServiceModal";
 
 const ServiceDetails = () => {
   const service = useLoaderData();
-  console.log(Object.keys(service).join(","));
   const {
     serviceName,
     serviceImage,
