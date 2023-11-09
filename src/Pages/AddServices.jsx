@@ -35,7 +35,7 @@ const AddServices = () => {
       .post("/services", addServices)
       .then((data) => {
         if (data.data.acknowledged) {
-          Swal.fire("Product Added Successful!", "", "success");
+          Swal.fire("Services Added Successful!", "", "success");
           form.reset();
         }
       })

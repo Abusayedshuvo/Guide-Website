@@ -4,6 +4,7 @@ import Breadcrumb from "../components/Breadcrumb/Breadcrumb";
 import Loading from "../components/Loading/Loading";
 import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import Swal from "sweetalert2";
 
 const Update = () => {
   const { id } = useParams();
@@ -57,7 +58,10 @@ const Update = () => {
     axios
       .put(`/services/${_id}`, updateServices)
       .then((data) => {
-        console.log(data);
+        if (data.data.modifiedCount) {
+          Swal.fire("Services Update Successful!", "", "success");
+          form.reset();
+        }
       })
       .catch(function (error) {
         console.log(error);

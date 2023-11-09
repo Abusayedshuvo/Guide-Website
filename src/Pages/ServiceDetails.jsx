@@ -1,7 +1,5 @@
 import { Link, useLoaderData } from "react-router-dom";
 import ServiceModal from "../components/ServiceModal/ServiceModal";
-import { useContext } from "react";
-import { AuthContext } from "../context/AuthProvider";
 import useAxios from "../Hook/useAxios";
 import Loading from "../components/Loading/Loading";
 import { useQuery } from "@tanstack/react-query";
@@ -9,10 +7,9 @@ import { Helmet } from "react-helmet";
 
 const ServiceDetails = () => {
   const service = useLoaderData();
-  const { user } = useContext(AuthContext);
   const axios = useAxios();
   const myServices = async () => {
-    const res = await axios.get(`/my-services/${user.email}`);
+    const res = await axios.get(`/my-services/${userEmail}`);
     return res;
   };
   const { data, isLoading } = useQuery({
@@ -28,10 +25,12 @@ const ServiceDetails = () => {
     serviceImage,
     userName,
     userPhoto,
+    userEmail,
     price,
     area,
     serviceDescription,
   } = service;
+  console.log(service);
   return (
     <>
       <Helmet>
