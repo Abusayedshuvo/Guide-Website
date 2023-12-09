@@ -13,3 +13,15 @@
 - Author can Update and Delete services
 - Here is manage services option
 - here is my see all booking option
+
+## Technology Used Here
+
+- React JS
+- React Dom
+- Firebase
+- React Icons
+- Sweet Alert 2
+- Swiper Slider
+- Tailwind CSS
+- Preline
+- More ....
